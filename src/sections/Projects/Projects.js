@@ -8,53 +8,130 @@ export class Projects extends React.Component {
   constructor(props){
     super(props);
     this.projectslist = projectslist
-    this.pageSize =  2               //Number of projects per page
-    this.state = { loadNumber: 1, openProjectID: -1 }; //Default number of pages to show
-
-    this.projectsToShow=this.projectslist.slice(0,((this.pageSize*this.state.loadNumber))) //Projects to show on initial load
+    this.state = { visibleCount: 2, openProjectID: -1 };
+    this.gridRef = React.createRef();
+    this.dialogRef = React.createRef();
 
     this.currentOpenProject = null
     this.handleOpenProject = this.handleOpenProject.bind(this)
 
-    
+  }
+
+  componentDidMount() {
+    this.setState({ visibleCount: Math.min(this.getColumnCount(), this.projectslist.length) });
+  }
+
+  componentDidUpdate(previousProps, previousState) {
+    const wasOpen = previousState.openProjectID !== -1;
+    const isOpen = this.state.openProjectID !== -1;
+
+    if (!wasOpen && isOpen) {
+      this.previousBodyOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      document.addEventListener('keydown', this.handleDialogKeyDown);
+      this.dialogRef.current?.focus();
+    } else if (wasOpen && !isOpen) {
+      this.deactivateDialog();
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.state.openProjectID !== -1) {
+      this.deactivateDialog(false);
+    }
+  }
+
+  getColumnCount() {
+    const grid = this.gridRef.current;
+    if (!grid) return 1;
+
+    return window.getComputedStyle(grid).gridTemplateColumns.trim().split(/\s+/).length;
   }
 
   handleLoadMoreClick = () => {
-    this.setState(({ loadNumber }) => ({
-      loadNumber: loadNumber + 1,
+    const columnCount = this.getColumnCount();
+    this.setState(({ visibleCount }) => ({
+      visibleCount: Math.min(
+        this.projectslist.length,
+        (Math.ceil(visibleCount / columnCount) + 1) * columnCount
+      ),
       openProjectID: -1
     }))
-
-    this.projectsToShow = this.projectslist.slice(0,((this.pageSize*this.state.loadNumber)+this.pageSize))
   }
 
   handleOpenProject(id) {
+    if (id !== -1) {
+      this.lastFocusedElement = document.activeElement;
+    }
     this.setState(() => ({
-    openProjectID: id
+      openProjectID: id
     }))
   }
 
+  handleContactClick = (event) => {
+    event.preventDefault();
+    this.setState({ openProjectID: -1 }, () => {
+      window.history.pushState(null, '', '#contactme');
+      document.getElementById('contactme')?.scrollIntoView();
+    });
+  }
+
+  deactivateDialog(restoreFocus = true) {
+    document.body.style.overflow = this.previousBodyOverflow || '';
+    document.removeEventListener('keydown', this.handleDialogKeyDown);
+    if (restoreFocus) {
+      this.lastFocusedElement?.focus();
+    }
+  }
+
+  handleDialogKeyDown = (event) => {
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      this.handleOpenProject(-1);
+      return;
+    }
+
+    if (event.key !== 'Tab') return;
+
+    const focusableElements = this.dialogRef.current?.querySelectorAll(
+      'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+    );
+    if (!focusableElements?.length) {
+      event.preventDefault();
+      this.dialogRef.current?.focus();
+      return;
+    }
+
+    const firstElement = focusableElements[0];
+    const lastElement = focusableElements[focusableElements.length - 1];
+    if (event.shiftKey && document.activeElement === firstElement) {
+      event.preventDefault();
+      lastElement.focus();
+    } else if (!event.shiftKey && document.activeElement === lastElement) {
+      event.preventDefault();
+      firstElement.focus();
+    }
+  }
+
+  handleBackdropClick = (event) => {
+    if (event.target === event.currentTarget) {
+      this.handleOpenProject(-1);
+    }
+  }
+
   loadMoreButton(){
-    if (this.state.loadNumber*this.pageSize < this.projectslist.length && this.state.openProjectID === -1){
+    if (this.state.visibleCount < this.projectslist.length && this.state.openProjectID === -1){
       return(<div className="ProjectsButton"><Button onClick={this.handleLoadMoreClick} text="Load More"></Button></div>)
     }
 
   }
 
   showProjects(){
-    if (this.state.openProjectID === -1){
-      return(
-        <div className='Projects-Container'>
-          {this.projectsToShow.map((project, index)=>{return(<Project title={project.title} started={project.started} completed={project.completed} overview={project.overview} img={project.img} index={index} key={index} handleOpenProject={this.handleOpenProject.bind(this)} url={project.url}/>);})}
-        </div>
-      );
-    }
-    else{
-      var currentOpenProject = this.projectslist[this.state.openProjectID]
-      return(
-        <OpenProject title={currentOpenProject.title} started={currentOpenProject.started} completed={currentOpenProject.completed} content={currentOpenProject.content} img={currentOpenProject.img} handleOpenProject={this.handleOpenProject.bind(this)} url={currentOpenProject.url}/>
-      );
-    }
+    return(
+      <div className='Projects-Container' ref={this.gridRef}>
+        {this.projectslist.slice(0, this.state.visibleCount).map((project, index)=>{return(<Project title={project.title} overview={project.overview} img={project.img} index={index} key={index} handleOpenProject={this.handleOpenProject} url={project.url}/>);})}
+      </div>
+    );
   }
 
   
@@ -63,11 +140,27 @@ export class Projects extends React.Component {
     return (
       <div id="projects" className="Projects-Section">
         <header className="Projects-Header">
-          <h2>Projects</h2>
-          <p> Here are some of my current and past projects and experiments.</p>
+          <h2>Personal Projects</h2>
+          <p>A collection of personal projects and academic work, separate from my professional roles.</p>
         </header>
         {this.showProjects()}
         {this.loadMoreButton()}
+        {this.state.openProjectID !== -1 && (() => {
+          const currentOpenProject = this.projectslist[this.state.openProjectID];
+          return (
+            <div className="ProjectDialogBackdrop" onClick={this.handleBackdropClick}>
+              <OpenProject
+                title={currentOpenProject.title}
+                content={currentOpenProject.content}
+                img={currentOpenProject.img}
+                handleOpenProject={this.handleOpenProject}
+                handleContactClick={this.handleContactClick}
+                url={currentOpenProject.url}
+                dialogRef={this.dialogRef}
+              />
+            </div>
+          );
+        })()}
       </div>
     );
     

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <circle cx="32" cy="32" r="31" fill="#1c5a91" />
+  <text
+    x="32"
+    y="41"
+    fill="#ffffff"
+    font-family="system-ui, sans-serif"
+    font-size="24"
+    font-weight="700"
+    text-anchor="middle"
+  >GR</text>
+</svg>

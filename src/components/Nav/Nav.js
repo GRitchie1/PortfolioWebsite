@@ -3,6 +3,7 @@ import styles from './Nav.module.css';
 
 const pages = [
   { name: 'About', to: '#aboutme' },
+  { name: 'Experience', to: '#experience' },
   { name: 'Qualifications', to: '#qualifications' },
   { name: 'Projects', to: '#projects' },
   { name: 'Contact', to: '#contactme' },
