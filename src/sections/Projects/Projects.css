@@ -1,35 +1,55 @@
 .Projects-Section {
-    text-align: left;
-    background-color: #f5f5f5 ;
-    min-height: 100vh;
-    align-items: left;
-    padding:100px 350px;
-    color: #262626;
-    font-size: calc(10px + 2vmin);
-  }
+  padding: 104px max(24px, calc((100vw - 1120px) / 2));
+  color: var(--ink);
+  background: #edf1ec;
+  text-align: left;
+}
 
-  .Projects-Container{
-    display: flex;
-    flex-wrap: wrap;
-    font-size: calc(10px + 1vmin);
-  }
+.Projects-Header {
+  max-width: 700px;
+  margin-bottom: 34px;
+}
 
-  @media (max-width: 1000px) {
-    .Projects-Header, .Projects-Image {
-      flex: 100%;
-    }
+.Projects-Header h2 {
+  margin-bottom: 18px;
+  font-size: 50px;
+}
 
-    .Projects-Section{
-      padding:20px;
-    }
-  }
+.Projects-Header p {
+  color: #485a52;
+  font-size: 17px;
+}
 
-  .ProjectsButton{
-    margin:auto; 
-    max-width:200px;
-    font-size: calc(10px + 1vmin);;
-  }
- 
-.youtubePlayer{
+.Projects-Container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 330px), 1fr));
+  align-items: stretch;
+  gap: 20px;
+}
+
+.ProjectsButton {
+  max-width: 190px;
+  margin: 32px auto 0;
+}
+
+.youtubePlayer {
   max-width: 100%;
+}
+
+@media (max-width: 760px) {
+  .Projects-Section {
+    padding: 80px 20px 72px;
+  }
+
+  .Projects-Header h2 {
+    font-size: 40px;
+  }
+
+  .Projects-Header p {
+    font-size: 16px;
+  }
+
+  .Projects-Container {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }

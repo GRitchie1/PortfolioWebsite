@@ -1,96 +1,49 @@
-import React from 'react';
+import { useState } from 'react';
 import styles from './Nav.module.css';
 
-export class NavBar extends React.Component {
-    constructor(props){
-      super(props);
-      this.pages=[
-        {name:"Home", to:"#home"},
-        {name:"About Me", to:"#aboutme"},
-        {name:"Qualifications", to:"#qualifications"},
-        {name:"Projects", to:"#projects"},
-        {name:"Contact Me", to:"#contactme"},
-      ];
-    }
-    
-    render() {
-      return (
-        <div>
-          <div className={styles.NavBar}>
-            {this.pages.map((page, index)=>{return(<NavItem key={index} name={page.name} to={page.to}/>);})
-            }
-          </div>
-          <HamburgerMenu/>
-        </div>
-      );
-    }
-  }
+const pages = [
+  { name: 'About', to: '#aboutme' },
+  { name: 'Qualifications', to: '#qualifications' },
+  { name: 'Projects', to: '#projects' },
+  { name: 'Contact', to: '#contactme' },
+];
 
+function NavBar() {
+  const [menuOpen, setMenuOpen] = useState(false);
 
-class HamburgerMenu extends React.Component{
-  constructor(props){
-    super(props)
-    this.state ={expandMenu: 0}
-    this.pages=[
-      {name:"Home", to:"#home"},
-      {name:"About Me", to:"#aboutme"},
-      {name:"Qualifications", to:"#qualifications"},
-      {name:"Projects", to:"#projects"},
-      {name:"Contact Me", to:"#contactme"},
-    ];
-    this.handleClick = this.handleClick.bind(this)
-  }
-  handleClick = () => {
-    
-    if (this.state.expandMenu === 0){
-      this.setState(() => ({
-        expandMenu: 1
-      }))
-    }
-    else if (this.state.expandMenu === 1){
-      this.setState(() => ({
-        expandMenu: 0
-      }))
-    }
-  }
-  render(){
-    if (this.state.expandMenu === 0){
-      return (
-        <div onClick={this.handleClick} className={styles.HamburgerMenu}>
-                <span id={styles.one} className={styles.hamburger_lines}></span>
-                <span id={styles.two} className={styles.hamburger_lines}></span>
-                <span id={styles.three} className={styles.hamburger_lines}></span>
-        </div>
-      )
-    }
-    else{
-      return(
-      <div className={styles.HamNavBar}>
-        <div onClick={this.handleClick} className={styles.HamburgerMenu}>
-          <span id={styles.one} className={styles.hamburger_lines}></span>
-          <span id={styles.two} className={styles.hamburger_lines}></span>
-          <span id={styles.three} className={styles.hamburger_lines}></span>
-        </div>
-        <div id={styles.HamNav}>
-          {this.pages.map((page, index)=>{return(<NavItem key={index} name={page.name} onClick={this.handleClick.bind(this)} to={page.to}/>);})}
-        </div>
+  return (
+    <header className={styles.NavBar}>
+      <div className={styles.NavInner}>
+        <a className={styles.Brand} href="#home" onClick={() => setMenuOpen(false)}>
+          <span className={styles.BrandMark}>GR</span>
+          <span>Gregor Ritchie</span>
+        </a>
+        <button
+          className={styles.MenuButton}
+          type="button"
+          aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          aria-expanded={menuOpen}
+          aria-controls="site-navigation"
+          onClick={() => setMenuOpen((open) => !open)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+        <nav
+          id="site-navigation"
+          className={`${styles.NavLinks} ${menuOpen ? styles.Open : ''}`}
+          aria-label="Main navigation"
+        >
+          {pages.map((page) => (
+            <a key={page.to} href={page.to} onClick={() => setMenuOpen(false)}>
+              {page.name}
+            </a>
+          ))}
+        </nav>
       </div>
-      )
-    }
-    
-  }
-}
-
-class NavItem extends React.Component{
-  render(){
-    return(
-      <a className={styles.NavLink} href={this.props.to} onClick={this.props.onClick}>
-        <div className={styles.NavItem}>
-          {this.props.name}
-        </div>
-      </a>
-    )
-  }
+    </header>
+  );
 }
 
 export default NavBar;

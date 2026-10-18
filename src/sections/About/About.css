@@ -1,38 +1,66 @@
 .About-Section {
-    text-align: left;
-    background-color: #f5f5f5 ;
-    display: flex;
-    flex-wrap: wrap;
-    min-height: 100vh;
-    align-items: left;
-    padding:100px;
-    color: #262626;
-    font-size: calc(10px + 2vmin);
-  }
-      
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(220px, 0.75fr);
+  align-items: center;
+  gap: 72px;
+  padding: 112px max(24px, calc((100vw - 1120px) / 2));
+  color: var(--ink);
+  background: var(--paper);
+  text-align: left;
+}
+
 .About-Header {
-    flex: 75%;
-    margin:auto;
+  max-width: 700px;
+}
+
+.About-Header h2 {
+  margin-bottom: 28px;
+  font-size: 50px;
+}
+
+.About-Header p {
+  color: #485a52;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.About-Header a {
+  color: var(--forest);
+  font-weight: 700;
+  text-decoration-color: var(--coral);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+.About-Image {
+  display: block;
+  width: 100%;
+  max-width: 350px;
+  aspect-ratio: 4 / 5;
+  margin: 0 0 0 auto;
+  border-radius: 4px;
+  object-fit: cover;
+  object-position: center 38%;
+}
+
+@media (max-width: 760px) {
+  .About-Section {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 30px;
+    padding: 80px 24px 64px;
   }
 
-  .About-Image{
-    flex: 25%;
-    width: 25%;
-    height: 25%;
-    margin:auto;
-    border-radius: 100%;
+  .About-Header h2 {
+    margin-bottom: 22px;
+    font-size: 40px;
   }
-  
 
-  @media (max-width: 1000px) {
-    .About-Header, .About-Image {
-      flex: 100%;
-    }
-
-    .About-Image{
-      padding: 100px;
-    }
-    .About-Section{
-      padding:20px;
-    }
+  .About-Header p {
+    font-size: 16px;
   }
+
+  .About-Image {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}

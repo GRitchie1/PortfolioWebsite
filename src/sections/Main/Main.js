@@ -4,15 +4,12 @@ import './Main.css';
 function Main() {
   return (
     <div id="home" className="MainSection">
-        <h1 >I am Gregor Ritchie</h1>
-        <p> I am an aspiring software engineer with a passion for systems development and mechatronics.</p>
-        {/*<img src={logo} className="App-logo" alt="logo" />*/}
-        <div className="Main-Button">
-          <a href="#aboutme">
-            <span className="m_scroll_arrows one"></span>
-            <span className="m_scroll_arrows two"></span>
-            <span className="m_scroll_arrows three"></span>
-          </a>
+        <p className="Main-Eyebrow">Software engineering</p>
+        <h1>Gregor Ritchie</h1>
+        <p className="Main-Intro">I am a Senior Software Engineer with experience working on large developments, complex refactors, mentoring, and architectural and product decisions.</p>
+        <div className="Main-Actions">
+          <a className="Main-PrimaryLink" href="#projects">Explore projects</a>
+          <a className="Main-SecondaryLink" href="#aboutme">A little about me</a>
         </div>
     </div>
   );

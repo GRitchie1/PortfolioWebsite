@@ -5,15 +5,14 @@ function About() {
     return (
       <div id='aboutme' className="About-Section">
         <header className="About-Header">
-          <h1 >About Me</h1>
+          <h2>About Me</h2>
           <p> 
-            I have been leading the development of mechatronics projects for the past 3 years.  
-            I have been studying mechatronics at college, as well as working full time.  
-            I have also built several personal projects outside of work which can be seen in the <a href="#projects">Projects</a> section.
+            I have embraced the use of AI as a tool to aid software development and have designed and implemented tooling and
+            processes to use it more effectively, whilst leveraging my software engineering experience to accelerate outcomes.
           </p>
-          <p> 
-            Having gained a wide variety of IT experience I am now looking to develop my skills further.  
-            I am currently looking for a role where I can utilise my skills and experience, as well as learn from more experienced developers.
+          <p>
+            I am driven to learn, and always willing to turn my hand to whatever task needs done. I regularly spend my free time
+            building personal projects to learn new skills.
           </p>
           <p> 
             If I'm not at my desk, you can probably find me fixing my classic VW Van or riding my motorbike.

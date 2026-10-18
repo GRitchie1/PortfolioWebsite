@@ -63,7 +63,7 @@ export class Projects extends React.Component {
     return (
       <div id="projects" className="Projects-Section">
         <header className="Projects-Header">
-          <h1>Projects </h1>
+          <h2>Projects</h2>
           <p> Here are some of my current and past projects and experiments.</p>
         </header>
         {this.showProjects()}

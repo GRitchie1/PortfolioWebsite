@@ -6,7 +6,7 @@ function Contact() {
     return (
       <div id="contactme" className="Contact-Section">
         <header className="Contact-Header">
-          <h1 >Connect With Me</h1>
+          <h2>Connect With Me</h2>
           <a className="Contact-Links" href="https://www.linkedin.com/in/gregorritchie/" >
             <img src={linkedin} alt="LinkedIn"></img>
           </a>

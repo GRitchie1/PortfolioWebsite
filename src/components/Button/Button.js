@@ -1,23 +1,21 @@
-import React from 'react';
 import styles from './Button.module.css';
 
-export class Button extends React.Component {
-    constructor(props){
-      super(props);
-      this.text = props.text
-      this.icon = props.icon
-      this.link = props.link
-    }
-    
-    render() {
-      return (
-        <a className={styles.ButtonLink} href={this.link} onClick={this.props.onClick}>
-          <div className={styles.ButtonContainer}>
-            <p className={styles.ButtonText}>{this.text}</p>
-          </div>
-        </a>
-      );
-    }
-  } 
+export function Button({ text, onClick, link }) {
+  const content = <span className={styles.ButtonText}>{text}</span>;
 
-  export default Button;
+  if (link) {
+    return (
+      <a className={`${styles.ButtonContainer} ${styles.ButtonLink}`} href={link} onClick={onClick}>
+        {content}
+      </a>
+    );
+  }
+
+  return (
+    <button className={styles.ButtonContainer} type="button" onClick={onClick}>
+      {content}
+    </button>
+  );
+}
+
+export default Button;

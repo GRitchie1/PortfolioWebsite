@@ -1,19 +1,32 @@
-.ButtonContainer{
-    background-color: #262626;
-    text-align: center;
-    border-bottom:solid 3px black;
-    padding:20px;
-    border-radius: 5px;
-    margin-bottom:10px;
+.ButtonContainer {
+    display: inline-flex;
+    min-height: 46px;
+    align-items: center;
+    justify-content: center;
+    padding: 11px 18px;
+    border: 0;
+    border-radius: 4px;
+    color: #ffffff;
+    background: #173d35;
     cursor: pointer;
-}
-
-.ButtonText{
-    margin:auto;
-}
-
-.ButtonText{
-    color:white;
-    font-weight: bolder;
+    font: inherit;
+    text-align: center;
     text-decoration: none;
+    transition: transform 160ms ease, background-color 160ms ease;
+}
+
+.ButtonContainer:hover {
+    transform: translateY(-2px);
+    background: #25594e;
+}
+
+.ButtonLink {
+    color: #ffffff;
+}
+
+.ButtonText {
+    color: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.2;
 }
