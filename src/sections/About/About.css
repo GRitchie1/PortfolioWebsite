@@ -19,13 +19,13 @@
 }
 
 .About-Header p {
-  color: #485a52;
+  color: #40576f;
   font-size: 17px;
   line-height: 1.8;
 }
 
 .About-Header a {
-  color: var(--forest);
+  color: var(--blue);
   font-weight: 700;
   text-decoration-color: var(--coral);
   text-decoration-thickness: 2px;

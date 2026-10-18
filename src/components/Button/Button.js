@@ -1,18 +1,19 @@
 import styles from './Button.module.css';
 
-export function Button({ text, onClick, link }) {
+export function Button({ text, onClick, link, variant = 'primary' }) {
   const content = <span className={styles.ButtonText}>{text}</span>;
+  const className = `${styles.ButtonContainer} ${variant === 'secondary' ? styles.Secondary : ''}`;
 
   if (link) {
     return (
-      <a className={`${styles.ButtonContainer} ${styles.ButtonLink}`} href={link} onClick={onClick}>
+      <a className={`${className} ${styles.ButtonLink}`} href={link} onClick={onClick}>
         {content}
       </a>
     );
   }
 
   return (
-    <button className={styles.ButtonContainer} type="button" onClick={onClick}>
+    <button className={className} type="button" onClick={onClick}>
       {content}
     </button>
   );

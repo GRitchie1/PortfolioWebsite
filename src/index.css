@@ -1,12 +1,12 @@
 :root {
-  --ink: #172822;
-  --forest: #173d35;
-  --paper: #f7f9f5;
+  --ink: #172a40;
+  --blue: #1c5a91;
+  --paper: #f5f8fc;
   --surface: #ffffff;
-  --soft: #e9efea;
-  --line: #d9e1da;
+  --soft: #e8f0f8;
+  --line: #d8e3ef;
   --coral: #e15c43;
-  --lime: #d9ed86;
+  --sky: #b9e2fb;
   --body-font: 'DM Sans', 'Trebuchet MS', sans-serif;
   --display-font: 'Space Grotesk', 'Trebuchet MS', sans-serif;
 }
@@ -49,7 +49,7 @@ p {
 }
 
 a {
-  color: var(--forest);
+  color: var(--blue);
 }
 
 a:focus-visible,

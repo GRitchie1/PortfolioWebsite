@@ -2,7 +2,7 @@
   min-height: 560px;
   padding: 104px max(24px, calc((100vw - 1120px) / 2));
   color: var(--ink);
-  background: var(--lime);
+  background: var(--sky);
   text-align: left;
 }
 
@@ -16,13 +16,13 @@
 }
 
 .Qualification-Header p {
-  color: #34473d;
+  color: #3a5570;
   font-size: 17px;
   line-height: 1.8;
 }
 
 .Qualification-Header a {
-  color: var(--forest);
+  color: var(--blue);
   font-weight: 700;
   text-decoration-color: var(--coral);
   text-decoration-thickness: 2px;
@@ -43,7 +43,7 @@
   align-items: center;
   justify-content: center;
   padding: 18px 24px;
-  border: 1px solid rgba(23, 61, 53, 0.12);
+  border: 1px solid rgba(28, 90, 145, 0.12);
   border-radius: 4px;
   background: rgba(255, 255, 255, 0.72);
   transition: transform 160ms ease, background-color 160ms ease;

@@ -5,7 +5,7 @@
   justify-content: center;
   padding: 88px 24px;
   color: #ffffff;
-  background: var(--forest);
+  background: var(--blue);
   text-align: center;
 }
 
@@ -41,6 +41,11 @@
   width: 34px;
   height: 34px;
   object-fit: contain;
+}
+
+.Contact-LinkedIn img {
+  border-radius: 3px;
+  filter: grayscale(1) brightness(3);
 }
 
 @media (max-width: 760px) {

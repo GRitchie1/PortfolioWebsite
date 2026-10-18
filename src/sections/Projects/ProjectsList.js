@@ -39,13 +39,11 @@ import onAir3 from './Images/OnAir/web.jpg'
 
 var projectslist = [
     {title:"RFID Robotic Arm", 
-        started:"September 2021",
-        completed:"May 2022",
         overview: <p>A robotic arm that recognizes and sorts items, built as my HND graded-unit project. Awarded an A grade.</p>,
         content:<div>
                     <h4>This project was awarded an A grade.</h4>
                     <p>I built this robotic arm for my HND Mechatronics graded unit. It picks up items, reads their RFID tags, and sorts them into one of three destinations.</p>
-                    <p>The prototype combines mechanical design, electronics, 3D modelling, 3D printing, and microcontroller programming. I designed and printed the parts on an Ender 3 V2.</p>
+                    <p>The prototype combines mechanical design, electronics, 3D modelling, 3D printing, and microcontroller programming. I designed the parts in FreeCAD and printed them on an Ender 3V2.</p>
                     <h3>See it in action</h3>
                     <ReactPlayer url="https://www.youtube.com/watch?v=GsCnQiO8YXE" className="youtubePlayer"/>
                     <h3>Project brief</h3>
@@ -78,8 +76,6 @@ var projectslist = [
         url:"https://github.com/GRitchie1/RFIDRoboticArm-HNDGradedUnit" 
     },
     {title:"Balena To Do List", 
-        started:"September 2021",
-        completed:false,
         overview:<p>A simple touchscreen task manager built to make everyday planning easier.</p>, 
         content:<div>
                     <h3>Overview</h3>
@@ -92,8 +88,6 @@ var projectslist = [
         url:"https://github.com/GRitchie1/Balena_ToDoList" 
     },
     {title:"Laser Engraver - Rebuild and Upgrade", 
-    started:"March 2021",
-    completed:false,
     overview:<p>A restoration and upgrade project focused on making a donated laser engraver reliable, safer, and easier to use.</p>, 
     content:<div>
                 <h3>Restoring the engraver</h3>
@@ -112,8 +106,6 @@ var projectslist = [
     url:"" 
     },
     {title:"USB Macro Pad", 
-        started:"December 2020",
-        completed:"December 2020",
         overview:<p>A custom shortcut pad that makes frequent computer tasks quicker and easier.</p>, 
         content:<div>
                     <h3>What it does</h3>
@@ -131,8 +123,6 @@ var projectslist = [
         url:"https://github.com/GRitchie1/Macro-Pad" 
     },
     {title:"Custom Motorcycle", 
-        started:"December 2021",
-        completed:false,
         overview:<p>A hands-on rebuild transforming a classic cruiser into a custom bobber.</p>, 
         content:<div>
                     <h3>Project overview</h3>
@@ -155,8 +145,6 @@ var projectslist = [
         url:"" 
     },
     {title:"On Air Sign", 
-        started:"June 2020",
-        completed:"June 2020",
         overview:<p>A connected studio sign that can be controlled remotely while recording.</p>, 
         content:<div>
                     <h3>Design and build</h3>
@@ -175,8 +163,6 @@ export default projectslist;
 
 /*
     {title:"Title", 
-        started:"Date",
-        completed:"Date",
         overview:<p>Text Overview...</p>, 
         content:<div>
                     <p>Main Text of project.</p>
