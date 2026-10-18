@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.72869d9c.css",
-    "main.js": "/static/js/main.1b40d68c.js",
+    "main.css": "/static/css/main.dd9c8637.css",
+    "main.js": "/static/js/main.58638cc2.js",
     "static/js/453.92fd537f.chunk.js": "/static/js/453.92fd537f.chunk.js",
     "reactPlayerYouTube.js": "/static/js/reactPlayerYouTube.f5776852.chunk.js",
     "reactPlayerSoundCloud.js": "/static/js/reactPlayerSoundCloud.27de7b44.chunk.js",
@@ -31,8 +31,8 @@
     "static/media/Codecademy.png": "/static/media/Codecademy.5cbdc72dbbe7bd2966a0.png",
     "static/media/model.jpg": "/static/media/model.85a2185d99e0a26ae61a.jpg",
     "index.html": "/index.html",
-    "main.72869d9c.css.map": "/static/css/main.72869d9c.css.map",
-    "main.1b40d68c.js.map": "/static/js/main.1b40d68c.js.map",
+    "main.dd9c8637.css.map": "/static/css/main.dd9c8637.css.map",
+    "main.58638cc2.js.map": "/static/js/main.58638cc2.js.map",
     "453.92fd537f.chunk.js.map": "/static/js/453.92fd537f.chunk.js.map",
     "reactPlayerYouTube.f5776852.chunk.js.map": "/static/js/reactPlayerYouTube.f5776852.chunk.js.map",
     "reactPlayerSoundCloud.27de7b44.chunk.js.map": "/static/js/reactPlayerSoundCloud.27de7b44.chunk.js.map",
@@ -50,7 +50,7 @@
     "reactPlayerPreview.cd7dea2b.chunk.js.map": "/static/js/reactPlayerPreview.cd7dea2b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.72869d9c.css",
-    "static/js/main.1b40d68c.js"
+    "static/css/main.dd9c8637.css",
+    "static/js/main.58638cc2.js"
   ]
 }
