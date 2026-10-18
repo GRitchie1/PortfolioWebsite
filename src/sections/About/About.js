@@ -6,16 +6,17 @@ function About() {
       <div id='aboutme' className="About-Section">
         <header className="About-Header">
           <h2>About Me</h2>
-          <p> 
-            I have embraced the use of AI as a tool to aid software development and have designed and implemented tooling and
-            processes to use it more effectively, whilst leveraging my software engineering experience to accelerate outcomes.
+          <p>
+            I use my software engineering experience to solve complex problems and help teams take on unfamiliar challenges.
+            I have also embraced AI as a development tool, creating tooling and processes that help teams use it effectively
+            while keeping engineering judgment at the centre.
           </p>
           <p>
-            I am driven to learn, and always willing to turn my hand to whatever task needs done. I regularly spend my free time
-            building personal projects to learn new skills.
+            Learning is a big part of how I work. I build personal projects to explore new skills and ideas, and I enjoy
+            taking on whatever needs doing.
           </p>
-          <p> 
-            If I'm not at my desk, you can probably find me fixing my classic VW Van or riding my motorbike.
+          <p>
+            Away from my desk, I enjoy fixing my classic VW van and riding my motorbike.
           </p>
         </header>
         <img src={image} className="About-Image" alt="Gregor Ritchie" />

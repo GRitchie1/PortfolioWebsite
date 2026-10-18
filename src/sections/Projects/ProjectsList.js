@@ -160,14 +160,3 @@ var projectslist = [
     },
   ]
 export default projectslist;
-
-/*
-    {title:"Title", 
-        overview:<p>Text Overview...</p>, 
-        content:<div>
-                    <p>Main Text of project.</p>
-                </div>,
-        img:importedimage, 
-        url:"https://example.com" 
-    },
-*/

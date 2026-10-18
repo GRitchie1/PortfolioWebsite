@@ -10,6 +10,7 @@ import Footer from './components/Footer/Footer';
 //Sections
 import Main from './sections/Main/Main';
 import About from './sections/About/About';
+import Experience from './sections/Experience/Experience';
 import Qualifications from './sections/Qualifications/Qualifications';
 import Projects from './sections/Projects/Projects';
 import Contact from './sections/Contact/Contact';
@@ -20,6 +21,7 @@ root.render(
     <NavBar />
     <Main />
     <About /> 
+    <Experience />
     <Qualifications /> 
     <Projects />
     <Contact />

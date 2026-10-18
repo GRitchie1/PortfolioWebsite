@@ -140,8 +140,8 @@ export class Projects extends React.Component {
     return (
       <div id="projects" className="Projects-Section">
         <header className="Projects-Header">
-          <h2>Projects</h2>
-          <p> Here are some of my current and past projects and experiments.</p>
+          <h2>Personal Projects</h2>
+          <p>A collection of personal projects and academic work, separate from my professional roles.</p>
         </header>
         {this.showProjects()}
         {this.loadMoreButton()}

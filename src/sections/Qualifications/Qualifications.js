@@ -5,31 +5,62 @@ import transcript from './GRitchie1 HTB Transcript.pdf'
 
 function Qualifications() {
     return (
-      <div id="qualifications" className="Qualification-Section">
+      <section id="qualifications" className="Qualification-Section">
         <header className="Qualification-Header">
           <h2>Qualifications</h2>
-          <p>
-            I studied HND Mechatronics at the City of Glasgow College, Scotland.  I was awarded an A grade for my HND Graded Unit.<br></br>
-            As part of my HND Graded Unit I developed a robotic arm to sort items by RFID tag, this can be seen in the <a href="#projects">Projects</a> section.  
-            As well as building on existing skills in Robotics and Programming this course also covered Mechanical and Electrical Engineering and Cyber Security. 
-          </p>
-          <p> 
-            Previously, I also completed an HNC in Mechatronics at the City of Glasgow College. 
-            I was awarded an A grade for my HNC Graded Unit.<br></br>
-          </p>
-          <p> 
-            I have also undertaken several online courses on CodeCademy and Hack the Box Academy which can be seen in the student transcripts below.
-          </p>
         </header>
-        <div className='Qualification-LinksContainer'>
-          <a className='Qualification-Links' href="https://www.codecademy.com/profiles/GRitchie1">
-            <img src={codecademy} alt="Codecademy"></img>
-          </a>
-          <a className='Qualification-Links' href={transcript}>
-            <img src={htb} alt="Hack the Box Academy"></img>
-          </a>
-        </div>
-      </div>
+
+        <section className="Qualification-Group" aria-labelledby="education-heading">
+          <h3 id="education-heading">Education</h3>
+          <article className="Qualification-Entry">
+            <div className="Qualification-EntryHeading">
+              <div>
+                <h4>HND Mechatronics</h4>
+                <p className="Qualification-Institution">City of Glasgow College</p>
+              </div>
+              <p className="Qualification-Dates">2022</p>
+            </div>
+            <ul className="Qualification-Details">
+              <li>Awarded grade 'A' for the HND Graded Unit.</li>
+              <li>Developed an RFID robotic arm as the graded-unit project; see the <a href="#projects">Projects</a> section.</li>
+              <li>Coursework included robotics, programming, mechanical and electrical engineering, and cybersecurity.</li>
+            </ul>
+          </article>
+
+          <article className="Qualification-Entry">
+            <div className="Qualification-EntryHeading">
+              <div>
+                <h4>HNC Mechatronics</h4>
+                <p className="Qualification-Institution">City of Glasgow College</p>
+              </div>
+              <p className="Qualification-Dates">2021</p>
+            </div>
+            <ul className="Qualification-Details">
+              <li>Awarded grade 'A' for the HNC Graded Unit.</li>
+            </ul>
+          </article>
+        </section>
+
+        <section className="Qualification-Group" aria-labelledby="training-heading">
+          <h3 id="training-heading">Additional Training</h3>
+          <div className="Qualification-TrainingGrid">
+            <article className="Qualification-TrainingItem">
+              <div>
+                <h4>Codecademy</h4>
+                <a href="https://www.codecademy.com/profiles/GRitchie1">View profile</a>
+              </div>
+              <img src={codecademy} alt="" />
+            </article>
+            <article className="Qualification-TrainingItem">
+              <div>
+                <h4>Hack The Box Academy</h4>
+                <a href={transcript}>View transcript</a>
+              </div>
+              <img src={htb} alt="" />
+            </article>
+          </div>
+        </section>
+      </section>
     );
   }
   
