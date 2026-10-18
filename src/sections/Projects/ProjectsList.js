@@ -6,10 +6,6 @@ import img1 from './Images/RFIDRoboticArm/main.jpg';
 import schematic1 from './Images/RFIDRoboticArm/schematic.jpg';
 import model1 from './Images/RFIDRoboticArm/model.jpg';
 
-//Automatic GreenHouse
-import img2 from './Images/AutomaticGreenhouse/main.jpg';
-import dashboard from './Images/AutomaticGreenhouse/dashboard.jpg';
-
 //Balena To Do List
 import img3 from './Images/BalenaToDoList/main.jpg';
 
@@ -19,14 +15,8 @@ import before from './Images/Motorbike/before.jpg'
 import during from './Images/Motorbike/during.jpg'
 import after from './Images/Motorbike/after.jpg'
 
-//Conways Game of life
-import conways1 from './Images/ConwaysGameofLife/main.jpg'
-
 //Laser engraver 
 import laser1 from './Images/LaserEngraver/main.jpg'
-
-//Tic Tac Terminal Toe
-import img4 from './Images/TicTacTerminalToe/main.jpg';
 
 //Macro Pad
 import macro1 from './Images/MacroPad/main.jpg'
