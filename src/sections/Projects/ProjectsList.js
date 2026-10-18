@@ -16,7 +16,20 @@ import during from './Images/Motorbike/during.jpg'
 import after from './Images/Motorbike/after.jpg'
 
 //Laser engraver 
-import laser1 from './Images/LaserEngraver/main.jpg'
+import laser1 from './Images/LaserEngraver/Laser Engraver.jpg'
+import laser2 from './Images/LaserEngraver/Coasters.jpg'
+import laser3 from './Images/LaserEngraver/main.jpg'
+
+//Plasma cutter
+import plasmaCutter from './Images/PlasmaCutter/Plasma cutter.jpg'
+
+//Bicycle
+import bicycleFinished from './Images/Bicycle/Bicycle Finished.jpg'
+import bicycleBefore from './Images/Bicycle/Bicycle before.jpg'
+import bicycleWelding from './Images/Bicycle/Welding.jpg'
+
+//Homelab
+import homelab from './Images/Homelab/Homelab.jpg'
 
 //Macro Pad
 import macro1 from './Images/MacroPad/main.jpg'
@@ -81,6 +94,8 @@ var projectslist = [
     overview:<p>A restoration and upgrade project focused on making a donated laser engraver reliable, safer, and easier to use.</p>, 
     content:<div>
                 <h3>Restoring the engraver</h3>
+                <h4>Before the rebuild</h4>
+                <img style={{maxWidth:"100%"}} src={laser3} alt="Laser engraver before the rebuild"></img>
                 <p>A friend gave me a laser engraver that was not working. I replaced its damaged microcontroller and installed GRBL, but the motors still would not move.</p>
                 <p>I traced the first problem to incorrectly wired stepper motors, then found that the stepper driver board was also damaged. Rewiring the motors and replacing the driver restored movement on both axes.</p>
                 <h3>Testing and upgrades</h3>
@@ -91,9 +106,51 @@ var projectslist = [
                 <p>For repeatable setup, I added a fixturing table to hold workpieces in consistent positions. Longer motor cables and cable chains keep the wiring routed safely and clear of the moving frame.</p>
                 <h3>Result</h3>
                 <p>The upgrades have made the engraver more accurate, easier to set up, and better equipped for a wider range of jobs.</p>
+                <img style={{maxWidth:"100%"}} src={laser2} alt="Laser-engraved wooden coasters"></img>
             </div>,
     img:laser1, 
     url:"" 
+    },
+    {title:"Plasma Cutter", 
+        overview:<p>A custom 3D-printed CNC gantry that automates the movement of a handheld plasma cutter.</p>, 
+        content:<div>
+                    <h3>Design and fabrication</h3>
+                    <p>I designed the machine from scratch in Fusion 360, then 3D printed the components. The goal was to add CNC capabilities to a normally handheld plasma cutter.</p>
+                    <h3>Motion and control</h3>
+                    <p>Lead screws and stepper motors control the torch movement, providing repeatable and accurate positioning.</p>
+                    <h3>Managing interference</h3>
+                    <p>Plasma cutting creates electromagnetic interference, so I used shielded cables to reduce its effect on the machine's wiring and motion control.</p>
+                </div>,
+        img:plasmaCutter, 
+        url:"" 
+    },
+    {title:"Bicycle Rebuild", 
+        overview:<p>A stock beach cruiser transformed into a chopper-style build with a modified frame, custom handlebars, and an elongated chain.</p>, 
+        content:<div>
+                    <h3>Frame fabrication</h3>
+                    <p>I started with a stock beach cruiser, stripped it down, and cut the frame with an angle grinder. I fabricated new frame sections and welded them in to create a more chopper-style riding position.</p>
+                    <p>I also fitted custom handlebars and an elongated chain to suit the revised frame geometry.</p>
+                    <img style={{maxWidth:"100%"}} src={bicycleBefore} alt="Bicycle before the rebuild"></img>
+                    <img style={{maxWidth:"100%"}} src={bicycleWelding} alt="Welding work during the bicycle rebuild"></img>
+                    <h3>Finish</h3>
+                    <p>After fabrication, I painted the stripped frame black.</p>
+                    <img style={{maxWidth:"100%"}} src={bicycleFinished} alt="Finished bicycle after the rebuild"></img>
+                </div>,
+        img:bicycleFinished, 
+        url:"" 
+    },
+    {title:"Homelab", 
+        overview:<p>A custom-organized homelab with a NAS, mini PC, Kubernetes Pi cluster, and rack-mounted gaming PC.</p>, 
+        content:<div>
+                    <h3>Equipment</h3>
+                    <p>The rack brings together a NAS, a mini PC, a Kubernetes cluster built from Raspberry Pis, and a custom rack-mounted gaming PC.</p>
+                    <p>The homelab runs my Home Assistant home automation server and gives me a place to learn and practise infrastructure and DevOps skills.</p>
+                    <p>I am in the process of converting the existing infrastructure to use Terraform and Ansible.</p>
+                    <h3>Design and organization</h3>
+                    <p>I designed and 3D printed parts throughout the project to organize the equipment and create a clean, tidy rack layout.</p>
+                </div>,
+        img:homelab, 
+        url:"" 
     },
     {title:"USB Macro Pad", 
         overview:<p>A custom shortcut pad that makes frequent computer tasks quicker and easier.</p>, 
@@ -148,5 +205,22 @@ var projectslist = [
         img:onAir1, 
         url:"" 
     },
-  ]
+    ]
+
+var projectPriority = [
+        "Homelab",
+        "Plasma Cutter",
+        "RFID Robotic Arm",
+        "Laser Engraver - Rebuild and Upgrade",
+        "Bicycle Rebuild",
+        "Custom Motorcycle"
+]
+
+projectslist.sort((firstProject, secondProject) => {
+        const firstPriority = projectPriority.indexOf(firstProject.title)
+        const secondPriority = projectPriority.indexOf(secondProject.title)
+        return (firstPriority === -1 ? projectPriority.length : firstPriority) -
+                (secondPriority === -1 ? projectPriority.length : secondPriority)
+})
+
 export default projectslist;
