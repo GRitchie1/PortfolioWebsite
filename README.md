@@ -1,20 +1,48 @@
-# Portfolio Website
+# Gregor Ritchie Portfolio
 
-This portfolio website was created from scratch in React and aims to document a number of past and current projects, and provide links to the relevant GitHub repositories.  This website will be constantly undergoing further development and any constructive feedback is welcome. Feel free to add any feedback/issues in the Issues tab of this repository.
+A React portfolio site for professional experience, education, and personal projects. It is hosted on GitHub Pages at [gregor-ritchie.co.uk](https://gregor-ritchie.co.uk/).
 
-This site is hosted using GitHub Pages and can be viewed [here](https://gregor-ritchie.co.uk/).
+## Local Development
 
+Requirements: Node.js and npm.
 
-## Colour Pallette
-The colour pallette for this website is the following:
-- Dark Grey: #262626
-- Second Grey: #3f3f3f
-- White: #f5f5f5
-- Red: #7a0b12
+```sh
+npm ci
+npm start
+```
 
-## Projects 
-The projects section of this website displays some current and past projects and experiments that have been undertaken.  The projects section utilises a "Project" React component which handles the display of the image, text and Read More button.  
+The development site runs at [http://localhost:3000](http://localhost:3000). Stop it with `Ctrl+C`.
 
-There is a Load More button in place to allow users to load more projects from the list.  The number of projects shown at a time is controlled by the pageSize variable and the loadNumber variable.
+Before deploying, run the tests and production build:
 
-The pageSize variable is set in the code, and determines how many projects are loaded per "page".  The loadNumber variable is incremented each time the Load More button is pressed.  The number of projects displayed is equal to the pageSize multiplied by the loadNumber.  If the number of projects to show is greater than or equal to the number of projects in the projects list, the Load More button is not displayed.
+```sh
+npm test -- --watchAll=false
+npm run build
+```
+
+## Updating Content
+
+- **Experience:** edit the `companies` data in `src/sections/Experience/Experience.js`. Each company contains its roles, dates, summaries, and responsibilities.
+- **Education and training:** edit `src/sections/Qualifications/Qualifications.js`.
+- **Personal projects:** edit the `projectslist` entries in `src/sections/Projects/ProjectsList.js`. Project images are stored in `src/sections/Projects/Images/`.
+- **About text:** edit `src/sections/About/About.js`.
+- **Navigation:** edit the `pages` list in `src/components/Nav/Nav.js` when adding or renaming a section.
+
+For project entries, update the title, overview, detailed content, image, and destination link together. Keep image imports at the top of `ProjectsList.js` in sync with the entries that use them.
+
+## Deploying
+
+1. Make and review your changes locally.
+2. Run `npm test -- --watchAll=false` and `npm run build`.
+3. Commit and push the source changes to the repository's source branch.
+4. Run:
+
+	```sh
+	npm run deploy
+	```
+
+The `predeploy` script builds the site, and `gh-pages -d build` publishes the generated site to the `gh-pages` branch. GitHub Pages should be configured to serve the `gh-pages` branch from its root. The custom domain is configured by `public/CNAME`; keep this file unless the domain is changing.
+
+## Public Content and Privacy
+
+This repository and the deployed site are public. Treat everything committed here, including source files, images, PDFs, and other imported assets, as publicly accessible. Do not add passwords, API keys, tokens, private contact details, confidential employer information, or documents that contain information you do not want public. Review linked transcripts and downloadable files before publishing them.
